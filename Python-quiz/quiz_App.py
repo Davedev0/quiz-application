@@ -1,45 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-
-# List of questions and answers for different levels
-questions = {
-    "easy": [
-        {
-            "question": "1. Ano ang capital ng Pilipinas?",
-            "options": [" Manila", " Cebu", " Davao", " Quezon City"],
-            "answer": " Manila"
-        },
-        {
-            "question": "2. Ano ang kulay ng langit?",
-            "options": [" Pula", " Berde", " Asul", " Dilaw"],
-            "answer": " Asul"
-        }
-    ],
-    "medium": [
-        {
-            "question": "1. Ano ang pinakamalaking planeta sa ating solar system?",
-            "options": [" Earth", " Mars", " Jupiter", " Saturn"],
-            "answer": " Jupiter"
-        },
-        {
-            "question": "2. Sino ang bayani ng Pilipinas na kilala sa kanyang 'Noli Me Tangere'?",
-            "options": [" Andres Bonifacio", " Jose Rizal", " Emilio Aguinaldo", " Apolinario Mabini"],
-            "answer": " Jose Rizal"
-        }
-    ],
-    "hard": [
-        {
-            "question": "1. Ako paba bossing??",
-            "options": [" Oo", " Hindi", " Puwede", " Haha"],
-            "answer": " Oo"
-        },
-        {
-            "question": "2. Sino ang unang tao na naglakad sa buwan?",
-            "options": [" John Robert Anggit", " Buzz Aldrin", " Yuri Gagarin", " John Glenn"],
-            "answer": " John Robert Anggit"
-        }
-    ]
-}
+from quizApp import questions
 
 class QuizApp:
     def __init__(self, master):
@@ -75,7 +36,7 @@ class QuizApp:
         self.name_frame = tk.Frame(self.master, bg='#ffcc3b')
         self.name_frame.place(relx=0.5, rely=0.5, anchor='center')
 
-        self.name_label = tk.Label(self.name_frame, text="Enter your name:", font=("Times New Roman", 10), bg='#ffcc3b', fg="black", width=20, height=1)
+        self.name_label = tk.Label(self.name_frame, text="Enter your name", font=("Times New Roman", 10), bg='#ffcc3b', fg="black", width=20, height=1)
         self.name_label.pack(pady=5)
 
         self.name_entry = tk.Entry(self.name_frame, font=("Arial", 7),width=18)
@@ -86,6 +47,10 @@ class QuizApp:
 
     def start_quiz(self):
         self.user_name = self.name_entry.get()  # Get the user's name
+        if not self.user_name:
+            messagebox.showwarning ("Input Error","Enter your name. ")
+            return
+
         self.name_frame.place_forget()
 
         self.level_frame = tk.Frame(self.master, bg='#ffcc3b')
@@ -154,7 +119,7 @@ class QuizApp:
         if self.is_quiz_active and self.remaining_time > 0:
             self.timer_label.config(text=f"Time left: {self.remaining_time} seconds")
             self.remaining_time -= 1
-            self.master.after(2000, self.update_timer)  
+            self.master.after(2000, self.update_timer)  # Update every 1 second
         elif self.remaining_time == 0:
             self.next_question()
 
@@ -211,8 +176,12 @@ class QuizApp:
         restart_button = tk.Button(button_frame, text="⇦ Restart", command=self.restart_quiz, font=("Times New Roman", 4), bg="green", fg="white", width=5)
         restart_button.pack(side=tk.LEFT, padx=5)
 
-        exit_button = tk.Button(button_frame, text="Exit ⇨", command=self.exit_app, font=("Times New Roman", 4), bg="red", fg="white", width=5)
+        exit_button = tk.Button(button_frame, text="Exit ⇨", command=self.confirm_exit, font=("Times New Roman", 4), bg="red", fg="white", width=5)
         exit_button.pack(side=tk.LEFT, padx=5)
+
+    def confirm_exit(self):
+        if messagebox.askyesno("Exit", "Are you sure you want to exit?"):
+            self.master.quit()
 
     def exit_app(self):
         self.master.quit()  # Exit the application
