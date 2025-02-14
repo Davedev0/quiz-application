@@ -1,249 +1,211 @@
-import tkinter as tk
-from tkinter import messagebox
-
 # List of questions and answers for different levels
 questions = {
     "easy": [
         {
-            "question": "1. Ano ang capital ng Pilipinas?",
-            "options": [" Manila", " Cebu", " Davao", " Quezon City"],
-            "answer": " Manila"
+            "question": "1. What color is the sky on a clear day?",
+            "options": ["Red", "Green", "Blue", "Yellow"],
+            "answer": "Blue"
         },
         {
-            "question": "2. Ano ang kulay ng langit?",
-            "options": [" Pula", " Berde", " Asul", " Dilaw"],
-            "answer": " Asul"
+            "question": "2. How many legs does a dog have?",
+            "options": ["Two", "Four", "Six", "Eight"],
+            "answer": "Four"
+        },
+        {
+            "question": "3. What is 1 + 1?",
+            "options": ["1", "2", "3", "4"],
+            "answer": "2"
+        },
+        {
+            "question": "4. What do bees make?",
+            "options": ["Milk", "Honey", "Bread", "Water"],
+            "answer": "Honey"
+        },
+        {
+            "question": "5. What is the opposite of hot?",
+            "options": ["Warm", "Cold", "Wet", "Soft"],
+            "answer": "Cold"
+        },
+        {
+            "question": "6. What do you use to write?",
+            "options": ["Pen", "Spoon", "Brush", "Ruler"],
+            "answer": "Pen"
+        },
+        {
+            "question": "7. How many days are in a week?",
+            "options": ["Five", "Seven", "Ten", "Twelve"],
+            "answer": "Seven"
+        },
+        {
+            "question": "8. What is the capital of Philippines?",
+            "options": ["Cebu", "Cubao", "Cavite", "Manila"],
+            "answer": "Manila"
+        },
+        {
+            "question": "9. Which animal says 'meow'?",
+            "options": ["Dog", "Cat", "Cow", "Bird"],
+            "answer": "Cat"
+        },
+        {
+            "question": "10. What shape has three sides?",
+            "options": ["Square", "Circle", "Triangle", "Rectangle"],
+            "answer": "Triangle"
         }
     ],
     "medium": [
         {
-            "question": "1. Ano ang pinakamalaking planeta sa ating solar system?",
-            "options": [" Earth", " Mars", " Jupiter", " Saturn"],
-            "answer": " Jupiter"
+            "question": "1. What keyword is used to define a function in Python?",
+            "options": ["func", "def", "function", "declare"],
+            "answer": "def"
         },
         {
-            "question": "2. Sino ang bayani ng Pilipinas na kilala sa kanyang 'Noli Me Tangere'?",
-            "options": [" Andres Bonifacio", " Jose Rizal", " Emilio Aguinaldo", " Apolinario Mabini"],
-            "answer": " Jose Rizal"
+            "question": "2. What does HTML stand for?",
+            "options": ["Hyperlink and Text Markup Language", "Hyper Text Markup Language", "Hyperlink Trans Market Language", "High Tax Markup Language"],
+            "answer": "Hyper Text Markup Language"
+        },
+        {
+            "question": "3. What planet is known as the Red Planet?",
+            "options": ["Earth", "Mars", "Jupiter", "Venus"],
+            "answer": "Mars"
+        },
+        {
+            "question": "4. What is the hardest natural substance on Earth?",
+            "options": ["Gold", "Iron", "Diamond", "Steel"],
+            "answer": "Diamond"
+        },
+        {
+            "question": "5. What does the command print() do in Python?",
+            "options": ["Stops the program", "Displays output", "Executes a loop", "Declares a variable"],
+            "answer": "Displays output"
+        },
+        {
+            "question": "6. Which organ pumps blood through the body?",
+            "options": ["Brain", "Lungs", "Heart", "Liver"],
+            "answer": "Heart"
+        },
+        {
+            "question": "7. What gas do humans exhale?",
+            "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+            "answer": "Carbon dioxide"
+        },
+        {
+            "question": "8. What does int represent in programming?",
+            "options": ["Decimal value", "Whole number", "String", "Boolean"],
+            "answer": "Whole number"
+        },
+        {
+            "question": "9. Who painted the Mona Lisa?",
+            "options": ["Leonardo da Vinci", "Pablo Picasso", "Venedick B.", "Rob Anggit"],
+            "answer": "Leonardo da Vinci"
+        },
+        {
+            "question": "10. Which part of the plant absorbs water from the soil?",
+            "options": ["Leaves", "Roots", "Stem", "Flower"],
+            "answer": "Roots"
         }
     ],
     "hard": [
         {
-            "question": "1. Ako paba bossing??",
-            "options": [" Oo", " Hindi", " Puwede", " Haha"],
-            "answer": " Oo"
+            "question": "1. What is the only metal that is liquid at room temperature besides mercury?",
+            "options": ["Gallium", "Cesium", "Bromine", "Francium"],
+            "answer": "Gallium"
         },
         {
-            "question": "2. Sino ang unang tao na naglakad sa buwan?",
-            "options": [" John Robert Anggit", " Buzz Aldrin", " Yuri Gagarin", " John Glenn"],
-            "answer": " John Robert Anggit"
+            "question": "2. Which mathematical conjecture remains one of the most famous unsolved problems in mathematics and is related to prime numbers?",
+            "options": ["John Robert Anggit", "Buzz Aldrin", "Yuri Gagarin", "John Glenn"],
+            "answer": "John Robert Anggit"
+        },
+        {
+            "question": "3. What is the name of the deepest point in the Earth's oceans?",
+            "options": ["Tonga Trench", "Puerto Rico Trench", "Mariana Trench", "Java Trench"],
+            "answer": "Mariana Trench"
+        },
+        {
+            "question": "4. Which ancient civilization is credited with creating the first known writing system, called cuneiform?",
+            "options": ["Egyptians", "Sumerians", "Phoenicians", "Babylonians"],
+            "answer": "Sumerians"
+        },
+        {
+            "question": "5. What rare atmospheric phenomenon is sometimes called St. Elmos Fire?",
+            "options": ["Ball Lightning", "Aurora Borealis", "Sprites", "Blue Jets"],
+            "answer": "Ball Lightning"
+        },
+        {
+            "question": "6. Which particle in physics is known as the God particle due to its role in giving mass to other particles?",
+            "options": ["Higgs Boson", "Neutrino", "Quark", "Gluon"],
+            "answer": "Higgs Boson"
+        },
+        {
+            "question": "7. Who was the first person to mathematically predict the existence of Neptune before it was observed?",
+            "options": ["Isaac Newton", "Urbain Le Verrier", "Galileo Galilei", "Johannes Kepler"],
+            "answer": "Urbain Le Verrier"
+        },
+        {
+            "question": "8. What is the name of the longest river in the world, if measured by length rather than discharge volume?",
+            "options": ["Amazon River", "Yangtze River", "Mississippi River", "Nile River"],
+            "answer": "Nile River"
+        },
+        {
+            "question": "9. Which human organ has the ability to regenerate itself, even after losing up to 75% of its tissue?",
+            "options": ["Heart", "Liver", "Kidney", "Pancreas"],
+            "answer": "Liver"
+        },
+        {
+            "question": "10. In what year did the Byzantine Empire officially fall with the conquest of Constantinople?",
+            "options": ["1204", "1453", "1492", "1517"],
+            "answer": "1453"
+        }
+    ],
+    "expert": [
+        {
+            "question": "1. Who invented the first programming language?",
+            "options": ["Lovelace Ada", "John Balonzo", "Ada Lovelace", "Charles Bobbage"],
+            "answer": "Ada Lovelace"
+        },
+        {
+            "question": "2. Who developed the first programming language?",
+            "options": ["Charles Bobbage", "Dave Fuentes", "Ada Lovelace", "Rainer Rentoria"],
+            "answer": "Charles Bobbage"
+        },
+        {
+            "question": "3. What is the first high-level programming language?",
+            "options": ["Cobol", "Python", "Fortran", "Plankalkul"],
+            "answer": "Plankalkul"
+        },
+        {
+            "question": "4. Who invented the programming language Python?",
+            "options": ["Guido Van Rossum", "Guido Vann Rossum", "John Paulo Quidan", "Charles Bobbage"],
+            "answer": "Guido Van Rossum"
+        },
+        {
+            "question": "5. Who invented the C Language?",
+            "options": ["Dennis Rodman", "Dennis Fuentes", "Dennis Ritchie", "Dennis Ritche"],
+            "answer": "Dennis Ritchie"
+        },
+        {
+            "question": "6. What is the type of error that is because of inconsistent use of spaces or tabs?",
+            "options": ["Indentation Error", "Endentation Error", "Type Error", "Syntax Error"],
+            "answer": "Indentation Error"
+        },
+        {
+            "question": "7. In programming, what is classified true and false?",
+            "options": ["Boolean", "1", "0", "0 and 1"],
+            "answer": "Boolean"
+        },
+        {
+            "question": "8. What kind of data type that can store characters in a fixed-length field?",
+            "options": ["Char", "Char Lang", "Charot", "String"],
+            "answer": "Char"
+        },
+        {
+            "question": "9. In programming, 0 and 1 are the binary digits that represent what?",
+            "options": ["Boolean", "True", "False", "True and False"],
+            "answer": "True and False"
+        },
+        {
+            "question": "10. In biology, what is called the storage of the cell?",
+            "options": ["Vacuoles", "Vacules", "Cell Membrane", "Membrane"],
+            "answer": "Vacuoles"
         }
     ]
 }
-
-class QuizApp:
-    def __init__(self, master):
-        self.master = master
-        self.master.title("Online Quiz System")
-        self.master.geometry("600x600")  # Set the window size
-        self.master.configure(bg='#336c99')
-
-        self.welcome_label = tk.Label(master, text="ⓄⓃⓁⒾⓃⒺ       ⓆⓊⒾⓏ     ⒶⓅⓅⓁⒾⒸⒶⓉⒾⓄⓃ", font=("Arial", 6, "bold"), bg="#ffcc3b", fg="black", width=55, height=3)
-        self.welcome_label.pack(pady=(0))
-        
-        self.bottom_frame = tk.Frame(master, bg='#ffcc3b')
-        self.bottom_frame.pack(side=tk.BOTTOM, fill=tk.X)
-
-        self.bottom_label = tk.Label(master, text="", font=("Arial", 6, "bold"), bg="#ffcc3b", fg="black", width=55, height=3)
-        self.bottom_label.pack(side=tk.BOTTOM, fill=tk.X)
-       
-        self.welcome_frame = tk.Frame(master, bg='#ffcc3b')
-        self.welcome_frame.place(relx=0.5, rely=0.5, anchor='center')
-        
-        self.welcome_message = tk.Label(self.welcome_frame, text="Start to Continue", font=("Times New Roman", 10), bg="#ffcc3b", fg="black", height=2, width=20)
-        self.welcome_message.pack(pady=0)
-
-        self.start_button = tk.Button(self.welcome_frame, text="Start", command=self.enter_name, font=("Times New Roman", 6), bg="green", fg="white")
-        self.start_button.pack(pady=35)
-
-        self.bottom_frame = tk.Frame(master, bg='#ffcc3b')
-        self.bottom_frame.pack(side=tk.BOTTOM, fill=tk.X)
-
-    def enter_name(self):
-        self.welcome_frame.place_forget()
-
-        self.name_frame = tk.Frame(self.master, bg='#ffcc3b')
-        self.name_frame.place(relx=0.5, rely=0.5, anchor='center')
-
-        self.name_label = tk.Label(self.name_frame, text="Enter your name:", font=("Times New Roman", 10), bg='#ffcc3b', fg="black", width=20, height=1)
-        self.name_label.pack(pady=5)
-
-        self.name_entry = tk.Entry(self.name_frame, font=("Arial", 7),width=18)
-        self.name_entry.pack(pady=5)
-
-        self.continue_button = tk.Button(self.name_frame, text="Continue", command=self.start_quiz, font=("Times New Roman", 5), bg="green", fg="white", width=4)
-        self.continue_button.pack(pady=20)
-
-    def start_quiz(self):
-        self.user_name = self.name_entry.get()  # Get the user's name
-        self.name_frame.place_forget()
-
-        self.level_frame = tk.Frame(self.master, bg='#ffcc3b')
-        self.level_frame.place(relx=0.5, rely=0.5, anchor='center')
-
-        self.level_label = tk.Label(self.level_frame, text="Select Your Level:", font=("Times New Roman", 10), bg='#ffcc3b', fg="black", height=2, width=20)
-        self.level_label.pack(pady=10)
-
-        self.easy_button = tk.Button(self.level_frame, text="Easy", command=lambda: self.start_quiz_level("easy"), font=("Times New Roman", 7), bg='green', fg="white", width=5)
-        self.easy_button.pack(pady=10)
-
-        self.medium_button = tk.Button(self.level_frame, text="Medium", command=lambda: self.start_quiz_level("medium"), font=("Times New Roman", 7), bg='green', fg="white", width=5)
-        self.medium_button.pack(pady=10)
-
-        self.hard_button = tk.Button(self.level_frame, text="Hard", command=lambda: self.start_quiz_level("hard"), font=("Times New Roman", 7), bg='green', fg="white", width=5)
-        self.hard_button.pack(pady=15)
-
-        self.expert_button = tk.Button(self.level_frame, text="Expert", command=lambda: self.start_quiz_level("expert"), font=("Times New Roman", 7), bg='green', fg="white", width=5)
-        self.expert_button.pack(pady=15)
-
-    def start_quiz_level(self, level):
-        self.level_frame.place_forget()
-        self.score = 0
-        self.question_index = 0
-        self.questions = questions[level]
-        self.is_quiz_active = True
-        self.show_question()
-
-    def show_question(self):
-        if hasattr(self, 'question_frame'):
-            self.question_frame.destroy()
-
-        self.question_frame = tk.Frame(self.master)
-        self.question_frame.place(relx=0.5, rely=0.5, anchor='center')
-
-        self.question_label = tk.Label(self.question_frame, text="", wraplength=400, font=("Times New Roman", 7), fg="green", width=30)
-        self.question_label.pack(pady=20)
-
-        self.var = tk.StringVar()
-        self.options_frame = tk.Frame(self.question_frame)
-        self.options_frame.pack(pady=10)
-
-        self.option_buttons = []
-        for i in range(4):
-            btn = tk.Radiobutton(self.options_frame, text="", variable=self.var, value="", font=("Times New Roman", 5), fg="black")
-            btn.pack(anchor='w')
-            self.option_buttons.append(btn)
-
-        self.back_button = tk.Button(self.question_frame, text="⇦ Back", command=self.previous_question, font=("Times New Roman", 5), bg='red', fg='white', width=4)
-        self.back_button.pack(side=tk.LEFT, padx=40, pady=15)
-
-        self.next_button = tk.Button(self.question_frame, text="Next ⇨", command=self.next_question, font=("Times New Roman", 5), bg='green', fg='white', width=4)
-        self.next_button.pack(side=tk.RIGHT, padx=40, pady=15)
-
-        self.timer_label = tk.Label(self.question_frame, text="", font=("Times New Roman", 4), fg="red")
-        self.timer_label.pack(pady=5)
-
-        self.update_question()
-        self.start_timer(15)
-
-    def start_timer(self, duration):
-        self.remaining_time = duration
-        self.update_timer()
-
-    def update_timer(self):
-        if self.is_quiz_active and self.remaining_time > 0:
-            self.timer_label.config(text=f"Time left: {self.remaining_time} seconds")
-            self.remaining_time -= 1
-            self.master.after(2000, self.update_timer)  
-        elif self.remaining_time == 0:
-            self.next_question()
-
-    def update_question(self):
-        question = self.questions[self.question_index]
-        self.question_label.config(text=question["question"])
-        self.var.set(None)
-
-        for i, option in enumerate(question["options"]):
-            self.option_buttons[i].config(text=option, value=option)
-
-    def next_question(self):
-        if self.var.get() == self.questions[self.question_index]["answer"]:
-            self.score += 1
-
-        self.question_index += 1
-        if self.question_index < len(self.questions):
-            self.update_question()
-            self.start_timer(15)
-        else:
-            self.show_result()
-
-    def previous_question(self):
-        if self.question_index > 0:
-            self.question_index -= 1
-            self.update_question()
-            self.start_timer(15)
-        else:
-            self.show_level_selection()  
-
-    def show_result(self):
-        self.is_quiz_active = False
-        self.question_frame.destroy()
-        result_frame = tk.Frame(self.master, bg='#336c99')
-        result_frame.place(relx=0.5, rely=0.5, anchor='center')
-        
-        # Show the user's score
-        score_label = tk.Label(result_frame, text=f"{self.user_name}'s score: {self.score}/{len(self.questions)}", font=("Times New Roman", 10), bg='#336c99', fg="#ffcc3b")
-        score_label.pack(pady=2)
-
-        # Display the appropriate message based on the score
-        if self.score == len(self.questions):  
-            result_label = tk.Label(result_frame, text="Congratulations perfect score!" , font=("Times New Roman", 5), bg='#336c99', fg="white")
-        elif self.score == 0: 
-            result_label = tk.Label(result_frame, text="Try again?", font=("Times New Roman", 6), bg='#336c99', fg="white")
-        else:  
-            result_label = tk.Label(result_frame, text="Thank you for trying!", font=("Times New Roman", 5), bg='#336c99', fg="white")
-        result_label.pack(pady=2)
-
-        # Restart and Exit buttons
-        button_frame = tk.Frame(result_frame, bg='#336c99')
-        button_frame.pack(pady=10)
-
-        restart_button = tk.Button(button_frame, text="⇦ Restart", command=self.restart_quiz, font=("Times New Roman", 4), bg="green", fg="white", width=5)
-        restart_button.pack(side=tk.LEFT, padx=5)
-
-        exit_button = tk.Button(button_frame, text="Exit ⇨", command=self.exit_app, font=("Times New Roman", 4), bg="red", fg="white", width=5)
-        exit_button.pack(side=tk.LEFT, padx=5)
-
-    def exit_app(self):
-        self.master.quit()  # Exit the application
-
-    def restart_quiz(self):
-        self.enter_name()  # Go back to the name entry screen
-
-    def show_level_selection(self):
-        if hasattr(self, 'level_frame'):
-            self.level_frame.destroy()
-
-        self.level_frame = tk.Frame(self.master, bg='#ffcc3b')
-        self.level_frame.place(relx=0.5, rely=0.5, anchor='center')
-
-        self.level_label = tk.Label(self.level_frame, text="Select Your Level:", font=("Times New Roman", 10), bg='#ffcc3b', fg="black", height=2, width=25)
-        self.level_label.pack(pady=10)
-
-        self.easy_button = tk.Button(self.level_frame, text="Easy", command=lambda: self.start_quiz_level("easy"), font=("Times New Roman", 7), bg='green', fg="white", width=5)
-        self.easy_button.pack(pady=10)
-
-        self.medium_button = tk.Button(self.level_frame, text="Medium", command=lambda: self.start_quiz_level("medium"), font=("Times New Roman", 7), bg='green', fg="white", width=5)
-        self.medium_button.pack(pady=10)
-
-        self.hard_button = tk.Button(self.level_frame, text="Hard", command=lambda: self.start_quiz_level("hard"), font=("Times New Roman", 7), bg='green', fg="white", width=5)
-        self.hard_button.pack(pady=10)
-
-        self.expert_button = tk.Button(self.level_frame, text="Expert", command=lambda: self.start_quiz_level("expert"), font=("Times New Roman", 7), bg='green', fg='white', width=5)
-        self.expert_button.pack(pady=15)
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    root.attributes('-fullscreen', True)  # Set the window to full screen
-    quiz_app = QuizApp(root)
-    root.mainloop()
